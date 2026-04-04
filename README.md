@@ -1,6 +1,6 @@
 ## 🚀 How to Install / كيفية التثبيت
 اتبع الخطوات التالية لتشغيل الإضافة على متصفحك (Chrome / Edge / Kiwi):
-
+1. تحميل الملف: اضغط [https://github.com/leqaa-nsy/DeepCheck-AI-Extension/releases/download/v1.0.0/MyExtension.zip] (حط لينك الـ Zip المباشر بتاعك) لتحميل أحدث نسخة من الإضافة.
 فك الضغط (Unzip): قم بفك ضغط ملف الـ ZIP الذي قمت بتحميله في مجلد جديد على سطح المكتب.
 
 صفحة الإضافات: افتح المتصفح واذهب إلى الرابط التالي: chrome://extensions
