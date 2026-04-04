@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "DeepCheck AI Floating Icon",
+  "version": "1.0",
+  "description": "أيقونة عائمة للفحص الفوري داخل أي صفحة ويب",
+  "permissions": ["scripting", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ]
+}

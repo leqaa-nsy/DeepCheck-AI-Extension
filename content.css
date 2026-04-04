@@ -1,0 +1,63 @@
+#deepcheck-float-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999999;
+    font-family: 'Segoe UI', sans-serif;
+    direction: rtl;
+}
+
+#deepcheck-float-button {
+    width: 60px;
+    height: 60px;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+#deepcheck-float-button:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: #1d4ed8;
+}
+
+#deepcheck-float-panel {
+    display: none;
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    width: 250px;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    border: 1px solid #e2e8f0;
+}
+
+#deepcheck-float-panel h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #2563eb;
+    text-align: center;
+}
+
+#deepcheck-float-panel button {
+    width: 100%;
+    background: #0f172a;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+}
+#deepcheck-float-panel button:hover { background: #334155; }
