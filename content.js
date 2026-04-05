@@ -1,5 +1,6 @@
 let currentIcon = null;
 
+// دالة إظهار الأيقونة العائمة
 function showFloatingIcon(x, y, url) {
     if (!currentIcon) {
         currentIcon = document.createElement('div');
@@ -16,6 +17,7 @@ function showFloatingIcon(x, y, url) {
     };
 }
 
+// مراقبة حركة الماوس في الصفحة (يوتيوب وغيره)
 document.addEventListener('mouseover', (e) => {
     const target = e.target;
     const img = target.closest('img');
@@ -34,12 +36,14 @@ document.addEventListener('mouseover', (e) => {
     }
 });
 
+// إخفاء الأيقونة عند الابتعاد
 document.addEventListener('mousemove', (e) => {
     if (currentIcon && !e.target.closest('img, ytd-thumbnail, video, .deepcheck-icon')) {
         currentIcon.style.display = 'none';
     }
 });
 
+// دالة الفحص (تكلم سيرفر Python)
 async function scanImage(imageUrl) {
     showToast("⏳ جاري تحليل الصورة بالذكاء الاصطناعي...");
     try {
@@ -55,10 +59,11 @@ async function scanImage(imageUrl) {
     }
 }
 
+// دالة إظهار رسائل التحميل
 function showToast(msg) {
     let t = document.getElementById('deepcheck-toast') || document.createElement('div');
     t.id = 'deepcheck-toast';
     t.innerText = msg;
     document.body.appendChild(t);
-    setTimeout(() => t.remove(), 3000);
+    setTimeout(() => { if(t) t.remove(); }, 3000);
 }
