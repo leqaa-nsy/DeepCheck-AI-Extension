@@ -1,10 +1,10 @@
-/* الأيقونة العائمة */
 .deepcheck-icon {
     position: fixed !important;
     display: block !important;
     width: 45px !important;
     height: 45px !important;
     background-color: #ff4757 !important;
+    /* استخدمنا رابط خارجي للأيقونة عشان ميعملش خطأ لو الصورة مش عندك */
     background-image: url('https://cdn-icons-png.flaticon.com/512/868/868913.png') !important;
     background-size: 60% !important;
     background-repeat: no-repeat !important;
@@ -22,7 +22,6 @@
     transform: scale(1.15) !important;
 }
 
-/* رسالة التنبيه (Toast) */
 #deepcheck-toast {
     position: fixed !important;
     bottom: 20px !important;
