@@ -1,0 +1,38 @@
+/* الأيقونة العائمة */
+.deepcheck-icon {
+    position: fixed !important;
+    display: block !important;
+    width: 45px !important;
+    height: 45px !important;
+    background-color: #ff4757 !important;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/868/868913.png') !important;
+    background-size: 60% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border: 3px solid #ffffff !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    z-index: 2147483647 !important; 
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    transition: transform 0.2s ease !important;
+}
+
+.deepcheck-icon:hover {
+    transform: scale(1.15) !important;
+}
+
+/* رسالة التنبيه (Toast) */
+#deepcheck-toast {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    background: #2f3542 !important;
+    color: white !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    z-index: 2147483647 !important;
+    direction: rtl !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+    font-family: sans-serif !important;
+}
