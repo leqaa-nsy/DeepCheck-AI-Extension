@@ -60,4 +60,13 @@
     font-size: 13px;
     font-weight: bold;
 }
+.deepcheck-icon {
+    position: absolute;
+    z-index: 2147483647 !important; /* ده أكبر رقم ممكن لضمان الظهور فوق أي فيديو */
+    width: 40px;
+    height: 40px;
+    background-color: red; /* جرب لون فاقع للتأكد من الظهور */
+    border-radius: 50%;
+    cursor: pointer;
+}
 #deepcheck-float-panel button:hover { background: #334155; }
