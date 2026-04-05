@@ -1,13 +1,16 @@
 {
   "manifest_version": 3,
   "name": "DeepCheck AI - حامي المحتوى",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "أداة ذكية لكشف تزييف الصور والمحتوى المضلل باستخدام AI",
   "permissions": ["storage", "activeTab", "scripting"],
   "host_permissions": [
     "http://localhost:5000/*",
     "https://*/*"
   ],
+  "action": {
+    "default_icon": "icon.png"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
