@@ -17,8 +17,9 @@ pip install -r requirements.txt
 
 قم بتفعيل وضع المطور (Developer Mode) من أعلى اليمين.
 
-اضغط على زر "Load unpacked" واختار مجلد المشروع.https://github.com/leqaa-nsy/DeepCheck-AI-Extension/releases/download/v1.0/MyExtension.zip
-
+اضغط على زر "Load unpacked" واختار مجلد المشروع.
+لينك المجلدhttps://github.com/leqaa-nsy/DeepCheck-AI-Extension/releases/download/v1.0/MyExtension.zip
+يجب فك ضغط المجلد اولا
 ثالثاً: طريقة الاستخدام
 
 اذهب إلى أي موقع (مثل يوتيوب).
