@@ -1,74 +1,62 @@
-// متغير لتخزين الأيقونة
-let currentIcon = null;
-
-// 1. مراقبة حركة الماوس
-document.addEventListener('mouseover', (e) => {
-    const target = e.target;
+// دالة إظهار الأيقونة - خليتها في الأول عشان المتصفح يشوفها فوراً
+function showFloatingIcon(x, y, url) {
+    let icon = document.getElementById('deepcheck-ui-icon');
+    if (!icon) {
+        icon = document.createElement('div');
+        icon.id = 'deepcheck-ui-icon';
+        icon.className = 'deepcheck-icon';
+        document.body.appendChild(icon);
+    }
     
-    // البحث عن صورة أو حاوية فيديو في يوتيوب
-    const img = target.closest('img');
-    const videoContainer = target.closest('ytd-thumbnail, ytd-reel-video-renderer, .html5-main-video');
+    icon.style.left = (x + 15) + 'px';
+    icon.style.top = (y + 15) + 'px';
+    icon.style.display = 'block';
 
-    let imageUrl = "";
-
-    if (img && img.src && img.src.startsWith('http')) {
-        imageUrl = img.src;
-    } else if (videoContainer) {
-        const thumbnail = videoContainer.querySelector('img');
-        if (thumbnail) imageUrl = thumbnail.src;
-    }
-
-    // هنا التصليح: بننادي على showIcon اللي معرفة تحت
-    if (imageUrl) {
-        showIcon(e.pageX, e.pageY, imageUrl);
-    }
-});
-
-// 2. دالة إظهار الأيقونة (تأكد أن الاسم مطابق لما فوق)
-function showIcon(x, y, url) {
-    if (!currentIcon) {
-        currentIcon = document.createElement('div');
-        currentIcon.className = 'deepcheck-icon';
-        document.body.appendChild(currentIcon);
-    }
-
-    currentIcon.style.left = (x + 15) + 'px';
-    currentIcon.style.top = (y + 15) + 'px';
-    currentIcon.style.display = 'block';
-
-    currentIcon.onclick = (event) => {
-        event.stopPropagation();
+    icon.onclick = (e) => {
+        e.stopPropagation();
         scanImage(url);
     };
 }
 
-// 3. إخفاء الأيقونة عند الابتعاد
-document.addEventListener('mousemove', (e) => {
-    if (currentIcon && !e.target.closest('img, ytd-thumbnail, .deepcheck-icon')) {
-        currentIcon.style.display = 'none';
+// مراقبة حركة الماوس
+document.addEventListener('mouseover', (e) => {
+    const target = e.target;
+    const img = target.closest('img');
+    const video = target.closest('ytd-thumbnail, ytd-reel-video-renderer, video');
+
+    let imageUrl = "";
+    if (img && img.src && img.src.startsWith('http')) {
+        imageUrl = img.src;
+    } else if (video) {
+        const thumb = video.querySelector('img');
+        if (thumb) imageUrl = thumb.src;
+    }
+
+    if (imageUrl) {
+        // بننادي على نفس الاسم اللي فوق بالظبط
+        showFloatingIcon(e.pageX, e.pageY, imageUrl);
     }
 });
 
-// 4. دالة الفحص (تكلم سيرفر البايثون)
+// إخفاء الأيقونة عند الابتعاد
+document.addEventListener('mousemove', (e) => {
+    const icon = document.getElementById('deepcheck-ui-icon');
+    if (icon && !e.target.closest('img, ytd-thumbnail, video, #deepcheck-ui-icon')) {
+        icon.style.display = 'none';
+    }
+});
+
+// دالة الفحص
 async function scanImage(imageUrl) {
-    console.log("جاري فحص:", imageUrl);
-    
     try {
         const response = await fetch('http://localhost:5000/analyze', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url: imageUrl })
         });
-
         const data = await response.json();
-
-        if (data.report) {
-            alert("✅ نتيجة الفحص:\n\n" + data.report);
-        } else {
-            alert("❌ خطأ: " + (data.error || "فشل التحليل"));
-        }
-
+        alert(data.report || "فشل التحليل");
     } catch (err) {
-        alert("⚠️ السيرفر مش شغال! افتح الـ Terminal وشغل ملف app.py");
+        alert("تأكد من تشغيل app.py أولاً!");
     }
 }
