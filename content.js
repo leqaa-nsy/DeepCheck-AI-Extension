@@ -1,29 +1,22 @@
-// دي الـ Function اللي بتنفذ المهمة دلوقتى
-async function scanImage(imageUrl) {
-    // 1. نظهر للمستخدم رسالة إنه جاري الفحص (Loading)
-    const resultDiv = document.getElementById('result-display'); 
-    if(resultDiv) resultDiv.innerText = "جاري الفحص والتحليل... انتظر قليلاً ⏳";
+document.addEventListener('mouseover', (e) => {
+    // 1. تحديد العناصر اللي ممكن تكون فيديو أو صورة في يوتيوب
+    const target = e.target;
+    
+    // البحث عن أقرب حاوية فيديو لو الماوس مش فوق الصورة مباشرة
+    const videoContainer = target.closest('ytd-thumbnail, ytd-reel-video-renderer, .html5-main-video');
+    
+    let imageUrl = "";
 
-    try {
-        // 2. نكلم السيرفر بتاعنا (Python) اللي شغال على بورت 5000
-        const response = await fetch('http://localhost:5000/analyze', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ url: imageUrl })
-        });
-
-        const data = await response.json();
-
-        // 3. نعرض النتيجة اللي رجعت (التقرير)
-        if (data.report) {
-            // لو عندك Popup شيك اعرض فيه، أو اكتفي بـ alert مؤقتاً
-            alert("نتائج الفحص:\n\n" + data.report); 
-        } else if (data.error) {
-            alert("عذراً، حدث خطأ: " + data.error);
-        }
-
-    } catch (err) {
-        console.error("خطأ في الاتصال بالسيرفر:", err);
-        alert("تأكد من تشغيل ملف Python (app.py) أولاً!");
+    if (target.tagName === 'IMG') {
+        imageUrl = target.src;
+    } else if (videoContainer) {
+        // لو الماوس فوق حاوية فيديو، بنحاول نجيب البوستر أو الثمنيل
+        const img = videoContainer.querySelector('img');
+        if (img) imageUrl = img.src;
     }
-}
+
+    // لو لقينا لينك، نظهر الأيقونة
+    if (imageUrl && imageUrl.startsWith('http')) {
+        showFloatingIcon(e.pageX, e.pageY, imageUrl);
+    }
+});
