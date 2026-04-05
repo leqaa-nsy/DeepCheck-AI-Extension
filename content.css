@@ -1,72 +1,58 @@
-#deepcheck-float-container {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 999999;
-    font-family: 'Segoe UI', sans-serif;
-    direction: rtl;
-}
-
-#deepcheck-float-button {
-    width: 60px;
-    height: 60px;
-    background-color: #2563eb;
-    color: white;
-    border-radius: 50%;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s;
-}
-
-#deepcheck-float-button:hover {
-    transform: scale(1.1) rotate(5deg);
-    background-color: #1d4ed8;
-}
-
-#deepcheck-float-panel {
-    display: none;
-    position: absolute;
-    bottom: 80px;
-    left: 0;
-    width: 250px;
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    border: 1px solid #e2e8f0;
-}
-
-#deepcheck-float-panel h3 {
-    margin: 0 0 10px 0;
-    font-size: 16px;
-    color: #2563eb;
-    text-align: center;
-}
-
-#deepcheck-float-panel button {
-    width: 100%;
-    background: #0f172a;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: bold;
-}
+/* تنسيق الأيقونة العائمة */
 .deepcheck-icon {
-    position: absolute;
-    z-index: 2147483647 !important; /* ده أكبر رقم ممكن لضمان الظهور فوق أي فيديو */
-    width: 40px;
-    height: 40px;
-    background-color: red; /* جرب لون فاقع للتأكد من الظهور */
-    border-radius: 50%;
-    cursor: pointer;
+    /* التموضع */
+    position: fixed !important; /* ثابتة بالنسبة للشاشة عشان متختفيش مع السكرول */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    
+    /* الأبعاد */
+    width: 45px !important;
+    height: 45px !important;
+    
+    /* الشكل الجمالي */
+    background-color: #ff4757 !important; /* لون أحمر احترافي */
+    background-image: url('https://cdn-icons-png.flaticon.com/512/868/868913.png') !important; /* أيقونة عدسة فحص */
+    background-size: 60% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    
+    /* الحدود والظلال */
+    border: 3px solid #ffffff !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    
+    /* الترتيب (الطبقة) - ده أهم سطر */
+    z-index: 2147483647 !important; 
+    
+    /* التفاعل */
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    transition: transform 0.2s ease, background-color 0.2s ease !important;
 }
-#deepcheck-float-panel button:hover { background: #334155; }
+
+/* تأثير عند الوقوف بالماوس */
+.deepcheck-icon:hover {
+    transform: scale(1.15) !important;
+    background-color: #ff6b81 !important;
+}
+
+/* تأثير عند الضغط */
+.deepcheck-icon:active {
+    transform: scale(0.9) !important;
+}
+
+/* رسالة التحميل (Loading) اللي بتظهر في الصفحة */
+#deepcheck-loading-toast {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    background: #2f3542 !important;
+    color: white !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-family: Arial, sans-serif !important;
+    z-index: 2147483647 !important;
+    direction: rtl !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+}
