@@ -1,5 +1,5 @@
 Welcome to AI-Powered Deepfake & Scam Detection System
-![AI-Powered Deepfake & Scam Detection System Preview](<img width="1425" height="967" alt="image" src="https://github.com/user-attachments/assets/fd9aae4d-fe9b-4ce8-a672-c73b700d1229" />)
+![<img width="1425" height="967" alt="image" src="https://github.com/user-attachments/assets/fd9aae4d-fe9b-4ce8-a672-c73b700d1229" />]
 
 عبارة عن إضافة لمتصفح جوجل كروم (Google Chrome Extension) صُممت لتكون خط الدفاع الأول للمستخدم أثناء تصفح الإنترنت. المشروع بيستخدم تقنيات الذكاء الاصطناعي لاكتشاف المحتوى المزيف (Deepfakes) ومحاولات الاحتيال (Scams) فور حدوثها، بهدف تعزيز الثقة الرقمية وحماية خصوصية المستخدمين.(يعمل علي كروم فقط لحين التطوير)
 لميزات الرئيسية (Key Features):
